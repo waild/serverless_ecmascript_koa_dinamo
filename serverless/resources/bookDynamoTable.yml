@@ -1,0 +1,14 @@
+BooksTable:
+  Type: 'AWS::DynamoDB::Table'
+  DeletionPolicy: Retain
+  Properties:
+    TableName: ${self:provider.environment.BOOK_TABLE}
+    AttributeDefinitions:
+      - AttributeName: "uuid"
+        AttributeType: "S"
+    KeySchema:
+      - AttributeName: "uuid"
+        KeyType: HASH
+    ProvisionedThroughput:
+      ReadCapacityUnits: 1
+      WriteCapacityUnits: 1

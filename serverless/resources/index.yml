@@ -1,0 +1,2 @@
+Resources:
+    ${file(./serverless/resources/bookDynamoTable.yml)}

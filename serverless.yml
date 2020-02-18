@@ -1,0 +1,37 @@
+service: books
+
+plugins:
+    - serverless-webpack
+    - serverless-offline
+    - serverless-plugin-include-dependencies
+
+frameworkVersion: ">=1.21.0 <2.0.0"
+
+custom:
+  serverless-offline:
+    httpPort: 4000
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev # Set the default stage used. Default is dev
+  region: us-east-1 # Overwrite the default region used. Default is us-east-1
+  environment:
+    BOOK_TABLE: ${self:service}-${opt:stage, self:provider.stage}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+      - dynamodb:DescribeTable
+      - dynamodb:Query
+      - dynamodb:Scan
+      - dynamodb:GetItem
+      - dynamodb:PutItem
+      - dynamodb:DeleteItem
+      - dynamodb:UpdateItem
+      Resource: "*"
+
+resources:
+  ${file(./serverless/resources/index.yml)}
+
+functions:
+  ${file(./serverless/functions/books.yml)}

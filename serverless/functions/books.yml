@@ -1,0 +1,18 @@
+books:
+    handler: app/index.handler
+    events:
+      - http:
+          method: POST
+          path: /book/add
+      - http:
+          method: POST
+          path: /book/{id}/update
+      - http:
+          method: POST
+          path: /book/{id}/delete
+      - http:
+          method: GET
+          path: /books
+      - http:
+          method: GET
+          path: /book/{id}
