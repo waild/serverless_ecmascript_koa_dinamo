@@ -1,8 +1,8 @@
 import BaseResource from './baseResource';
-const tableName = process.env.BOOK_TABLE;
 
+const tableName = process.env.BOOK_TABLE;
 export default class BooksResource extends BaseResource {
-	constructor() {
-		super(tableName);
-	}
+    constructor() {
+        super(tableName);
+    }
 }

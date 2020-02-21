@@ -7,7 +7,6 @@ export default class BaseController {
 
     async get({ id }) {
         const result = await this.resource.getSingle(id);
-        console.log('result', result);
         if (!result || JSON.stringify(result) === '{}') {
             throw new NotFoundError('Entity Not Found');
         }

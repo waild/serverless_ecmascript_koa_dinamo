@@ -5,8 +5,9 @@ import bodyParser from 'koa-bodyparser';
 import requestId from 'koa-requestid';
 import serverless from 'serverless-http';
 import Routes from './routes';
+
 export default class App {
-	constructor() {
+    constructor() {
         const app = new Koa();
         const routes = new Routes();
         app.use(bodyParser());
