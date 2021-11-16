@@ -13,7 +13,7 @@
     },
     "dependencies": {
         "@koa/cors": "2.2.3",
-        "aws-sdk": "2.562.0",
+        "aws-sdk": "2.814.0",
         "aws-serverless-koa": "1.0.1",
         "cross-fetch": "3.0.4",
         "isomorphic-fetch": "2.2.1",
